@@ -1,0 +1,150 @@
+// variables
+$blanco: white;
+// mixin funciones css
+@mixin alto-ancho($width,$height) {
+    width: $width;
+    height: $height;
+}
+
+
+body{
+    margin: 0;
+    font-family: 'Muli', sans-serif;
+    /* hacer un degradado de un color a otro */
+    background: linear-gradient(#21C08B,#AB88FF);
+
+}
+.header{
+    @include alto-ancho(100%,80px)
+}
+.header__img{
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.login{ 
+    @extend .flex;
+    padding: 0px 30px;
+    min-height: calc(100vh - 200px);
+}
+.login__container{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 40px;
+    color: $blanco;
+    padding: 60px 68px 40px;
+    min-height: 700px;
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.login__container--form{
+    display: flex;
+    flex-direction: column;
+    label {
+        font-size: 14px;
+    }
+}
+.login__container--remember-me{
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    a {
+        color: $blanco;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+/* el > sirve para coger todos los div dentro de la clase */
+.login__container--social-media > div {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    > img {
+        width: 30px;
+        margin-right: 10px;
+    }
+}
+.login__container--register{
+    font-size: 14px;
+    a{
+        color: $blanco;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+.input{
+    background-color: transparent;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 2px solid white;
+    font-size: 16px;
+    font-family: 'Muli', sans-serif;
+    margin-bottom: 20px;
+    padding:0px 20px;
+    outline: none;
+    height: 50px;
+}
+::placeholder{
+    color: $blanco;
+}
+.button{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 25px;
+    color: $blanco;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Muli', sans-serif;
+    height: 50px;
+    letter-spacing: 1px;
+    margin: 10px 0px;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    a {
+        color: $blanco;
+        cursor: pointer;
+        font-size: 14px;
+        padding-left: 30px;
+        text-decoration: none;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+@media only screen and (max-width:600px){
+    .login__container{
+        background-color: transparent;
+        border: none;
+        padding: 0px;
+        width: 100%;
+    }
+    .footer{
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+}
